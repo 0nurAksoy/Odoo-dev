@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Hospital Management',
-    'version': '2.0.0',
+    'version': '1.0.0',
     'summary': 'Basic Hospital Management',
-    'sequence': -100,
+    'sequence': -110,
     'description': """Basic Hospital Management""",
     'category': 'Hospital',
     'author': 'Onur Aksoy',
