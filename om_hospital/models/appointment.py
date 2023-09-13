@@ -69,7 +69,7 @@ class HospitalAppointment(models.Model):
         return {
             'type': 'ir.actions.act_url',
             'target': 'new',
-            'url': 'https://apps.odoo.com/apps/modules/14.0/%s/' % self.prescription,
+            'url': 'https://https://www.google.com' % self.prescription,
         }
 
 

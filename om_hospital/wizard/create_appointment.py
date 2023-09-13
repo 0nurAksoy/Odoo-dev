@@ -15,12 +15,13 @@ class CreateAppointmentWizard(models.TransientModel):
         return res
 
     date_appointment = fields.Date(string='Date', required=False)
+    doctor_id = fields.Many2one('hospital.doctor', string="Doctor", required=True)
     patient_id = fields.Many2one('hospital.patient', string="Patient", required=True)
 
     def action_create_appointment(self):
         vals = {
             'patient_id': self.patient_id.id,
-            'doctor_id': 2,
+            'doctor_id': self.doctor_id.id,
             'date_appointment': self.date_appointment
         }
         appointment_rec = self.env['hospital.appointment'].create(vals)
@@ -31,26 +32,5 @@ class CreateAppointmentWizard(models.TransientModel):
             'res_model': 'hospital.appointment',
             'res_id': appointment_rec.id,
         }
-
-    # def action_view_appointment(self):
-    #     # action = self.env.ref('om_hospital.action_hospital_appointment').read()[0]
-    #     # action['domain'] = [('patient_id', '=', self.patient_id.id)]
-    #     # return action
-    #
-    #     action = self.env['ir.actions.actions']._for_xml_id("om_hospital.action_hospital_appointment")
-    #     action['domain'] = [('patient_id', '=', self.patient_id.id)]
-    #     return action
-    #
-    #     # return {
-    #     #     'type': 'ir.actions.act_window',
-    #     #     'name': 'Appointments',
-    #     #     'res_model': 'hospital.appointment',
-    #     #     'view_type': 'form',
-    #     #     'domain': [('patient_id', '=', self.patient_id.id)],
-    #     #     'view_mode': 'tree,form',
-    #     #     'target': 'current',
-    #     # }
-    #     # return action
-
 
 
