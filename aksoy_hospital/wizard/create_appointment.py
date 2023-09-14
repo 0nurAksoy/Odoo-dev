@@ -5,7 +5,7 @@ from odoo import api, fields, models, _
 
 class CreateAppointmentWizard(models.TransientModel):
     _name = "create.appointment.wizard"
-    _description = "Create Appointment Wizard"
+    _description = "Randevu Olusturma Sihirbazi"
 
     @api.model
     def default_get(self, fields):
@@ -14,9 +14,9 @@ class CreateAppointmentWizard(models.TransientModel):
             res['patient_id'] = self._context.get('active_id')
         return res
 
-    date_appointment = fields.Date(string='Date', required=False)
-    doctor_id = fields.Many2one('hospital.doctor', string="Doctor", required=True)
-    patient_id = fields.Many2one('hospital.patient', string="Patient", required=True)
+    date_appointment = fields.Date(string='Tarih', required=False)
+    doctor_id = fields.Many2one('hospital.doctor', string="Doktor", required=True)
+    patient_id = fields.Many2one('hospital.patient', string="Hasta", required=True)
 
     def action_create_appointment(self):
         vals = {

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Hospital Management',
+    'name': 'Hastane Yonetimi',
     'version': '1.0.0',
-    'summary': 'Basic Hospital Management',
+    'summary': 'Basit Hastane Yonetimi',
     'sequence': -115,
-    'description': """Basic Hospital Management""",
-    'category': 'Hospital',
+    'description': """Basit Hastane Yonetimi""",
+    'category': 'Hastane',
     'author': 'Onur Aksoy',
     'license': 'AGPL-3',
     'depends': [

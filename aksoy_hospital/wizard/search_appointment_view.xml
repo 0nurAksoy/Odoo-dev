@@ -5,18 +5,18 @@
         <field name="name">search.appointment.wizard.form</field>
         <field name="model">search.appointment.wizard</field>
         <field name="arch" type="xml">
-            <form string="Search Appointment">
+            <form string="Randevu Ara">
                 <group>
                     <field name="patient_id"/>
                 </group>
                 <footer>
-                    <button name="action_search_appointment_m1" type="object" string="Search Appointments (M1)"
+                    <button name="action_search_appointment_m1" type="object" string="Arama Yontemi-1"
                             class="btn-primary"/>
-                    <button name="action_search_appointment_m2" type="object" string="Search Appointments (M2)"
+                    <button name="action_search_appointment_m2" type="object" string="Arama Yontemi-2"
                             class="btn-primary"/>
-                    <button name="action_search_appointment_m3" type="object" string="Search Appointments (M3)"
+                    <button name="action_search_appointment_m3" type="object" string="Arama Yontemi-3"
                             class="btn-primary"/>
-                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    <button string="Iptal" class="btn-secondary" special="cancel"/>
                 </footer>
             </form>
         </field>

@@ -7,32 +7,32 @@ from odoo.exceptions import ValidationError
 class HospitalPatient(models.Model):
     _name = "hospital.patient"
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    _description = "Hospital Patient"
+    _description = "Hastalar"
     _order = "id desc"
 
     @api.model
     def default_get(self, fields):
         res = super(HospitalPatient, self).default_get(fields)
-        res['note'] = 'NEW Patient Created'
+        res['note'] = 'Yeni hasta kaydi'
         return res
 
-    name = fields.Char(string='Name', required=True, tracking=True)
-    reference = fields.Char(string='Order Reference', required=True, copy=False, readonly=True,
-                            default=lambda self: _('New'))
-    age = fields.Integer(string='Age', tracking=True)
+    name = fields.Char(string='Isim', required=True, tracking=True)
+    reference = fields.Char(string='Sira Sayisi', required=True, copy=False, readonly=True,
+                            default=lambda self: _('H'))
+    age = fields.Integer(string='Yas', tracking=True)
     gender = fields.Selection([
-        ('male', 'Male'),
-        ('female', 'Female'),
-        ('other', 'Other'),
+        ('male', 'Erkek'),
+        ('female', 'Kadin'),
+        ('other', 'Diger'),
     ], required=True, default='male', tracking=True)
-    note = fields.Text(string='Description')
-    state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirmed'),
-                              ('done', 'Done'), ('cancel', 'Cancelled')], default='draft',
+    note = fields.Text(string='Not')
+    state = fields.Selection([('draft', 'Taslak'), ('confirm', 'Dogrulandi'),
+                              ('done', 'Tamamlandi'), ('cancel', 'Iptal')], default='draft',
                              string="Status", tracking=True)
-    responsible_id = fields.Many2one('res.partner', string="Responsible")
-    appointment_count = fields.Integer(string='Appointment Count', compute='_compute_appointment_count')
-    image = fields.Binary(string="Patient Image")
-    appointment_ids = fields.One2many('hospital.appointment', 'patient_id', string="Appointments")
+    responsible_id = fields.Many2one('res.partner', string="Sorumlu")
+    appointment_count = fields.Integer(string='Randevu Sayisi', compute='_compute_appointment_count')
+    image = fields.Binary(string="Hasta Fotografi")
+    appointment_ids = fields.One2many('hospital.appointment', 'patient_id', string="Randevular")
 
     def _compute_appointment_count(self):
         for rec in self:
@@ -58,9 +58,7 @@ class HospitalPatient(models.Model):
     @api.model
     def create(self, vals):
         if not vals.get('note'):
-            vals['note'] = 'New Patient'
-        if vals.get('reference', _('New')) == _('New'):
-            vals['reference'] = self.env['ir.sequence'].next_by_code('hospital.patient') or _('New')
+            vals['note'] = 'Yeni hasta'
         res = super(HospitalPatient, self).create(vals)
         return res
 
@@ -69,13 +67,13 @@ class HospitalPatient(models.Model):
         for rec in self:
             patients = self.env['hospital.patient'].search([('name', '=', rec.name), ('id', '!=', rec.id)])
             if patients:
-                raise ValidationError(_("Name %s Already Exists" % rec.name))
+                raise ValidationError(_("Isim %s zaten var!" % rec.name))
 
     @api.constrains('age')
     def check_age(self):
         for rec in self:
             if rec.age == 0:
-                raise ValidationError(_("Age Cannot Be Zero .. !"))
+                raise ValidationError(_("Yas degeri 0(sifir) olamaz .. !"))
 
     def name_get(self):
         result = []

@@ -35,13 +35,13 @@
                                         ID: <field name="reference"/>
                                     </li>
                                     <li>
-                                        Name: <field name="name"/>
+                                        Isim: <field name="name"/>
                                     </li>
                                     <li>
-                                        Age: <field name="age"/>
+                                        Yas: <field name="age"/>
                                     </li>
                                     <li>
-                                        Gender: <field name="gender"/>
+                                        Cinsiyet: <field name="gender"/>
                                     </li>
                                 </ul>
                             </div>
@@ -101,7 +101,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Appointments" name="appointment">
+                        <page string="Randevular" name="appointment">
                             <field name="appointment_ids" readonly="1">
                             </field>
                         </page>
@@ -124,9 +124,9 @@
                 <field name="name"/>
                 <field name="note"/>
                 <separator/>
-                <filter string="Male" name="male" domain="[('gender', '=', 'male')]"/>
-                <filter string="Female" name="female" domain="[('gender', '=', 'female')]"/>
-                <filter string="Others" name="other" domain="[('gender', '=', 'other')]"/>
+                <filter string="Erkel" name="male" domain="[('gender', '=', 'male')]"/>
+                <filter string="Kadin" name="female" domain="[('gender', '=', 'female')]"/>
+                <filter string="Diger" name="other" domain="[('gender', '=', 'other')]"/>
                 <group expand="1" string="Group By">
                     <filter string="Gender" name="gender" context="{'group_by':'gender'}"/>
                     <filter string="Patient Name" name="patient_name" context="{'group_by':'name'}"/>

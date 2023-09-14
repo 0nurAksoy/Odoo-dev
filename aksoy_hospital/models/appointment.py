@@ -7,33 +7,33 @@ from odoo.exceptions import ValidationError
 class HospitalAppointment(models.Model):
     _name = "hospital.appointment"
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    _description = "Hospital Appointment"
+    _description = "Randevular"
     _order = "doctor_id,name,age"
 
-    name = fields.Char(string='Order Reference', required=True, copy=False, readonly=True,
-                       default=lambda self: _('New'))
-    patient_id = fields.Many2one('hospital.patient', string="Patient", required=True)
-    age = fields.Integer(string='Age', related='patient_id.age', tracking=True, store=True)
-    doctor_id = fields.Many2one('hospital.doctor', string="Doctor", required=True)
+    name = fields.Char(string='Sira Sayisi', required=True, copy=False, readonly=True,
+                       default=lambda self: _('H'))
+    patient_id = fields.Many2one('hospital.patient', string="Hasta Adi", required=True)
+    age = fields.Integer(string='Yas', related='patient_id.age', tracking=True, store=True)
+    doctor_id = fields.Many2one('hospital.doctor', string="Doktor", required=True)
     gender = fields.Selection([
-        ('male', 'Male'),
-        ('female', 'Female'),
-        ('other', 'Other'),
-    ], string="Gender")
-    state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirmed'),
-                              ('done', 'Done'), ('cancel', 'Cancelled')], default='draft',
+        ('male', 'Erkek'),
+        ('female', 'Kadin'),
+        ('other', 'Diger'),
+    ], string="Cinsiyet")
+    state = fields.Selection([('draft', 'Taslak'), ('confirm', 'Dogrulandi'),
+                              ('done', 'Tamanlandi'), ('cancel', 'Iptal')], default='draft',
                              string="Status", tracking=True)
     priority = fields.Selection([
-        ('0', 'Low'),
+        ('0', 'Dusuk'),
         ('1', 'Normal'),
-        ('2', 'High'),
-        ('3', 'Very High')], string="Priority")
-    note = fields.Text(string='Description')
-    date_appointment = fields.Date(string="Date")
-    date_checkup = fields.Datetime(string="Check Up Time")
-    prescription = fields.Text(string="Prescription")
+        ('2', 'Yuksek'),
+        ('3', 'Cok Yuksek')], string="Oncelik")
+    note = fields.Text(string='Not')
+    date_appointment = fields.Date(string="Tarih")
+    date_checkup = fields.Datetime(string="Kontrol Tarihi")
+    prescription = fields.Text(string="Recete")
     prescription_line_ids = fields.One2many('appointment.prescription.lines', 'appointment_id',
-                                            string="Prescription Lines")
+                                            string="Ilac Listesi")
 
     def action_confirm(self):
         self.state = 'confirm'
@@ -67,14 +67,14 @@ class HospitalAppointment(models.Model):
 
     def unlink(self):
         if self.state == 'done':
-            raise ValidationError(_("You Cannot Delete %s as it is in Done State" % self.name))
+            raise ValidationError(_("%s Tamamlandigindan, silemezsiniz !" % self.name))
         return super(HospitalAppointment, self).unlink()
 
     def action_url(self):
         return {
             'type': 'ir.actions.act_url',
             'target': 'new',
-            'url': 'https://https://www.google.com' % self.prescription,
+            'url': 'https://www.google.com' % self.prescription,
         }
 
 
@@ -82,7 +82,7 @@ class AppointmentPrescriptionLines(models.Model):
     _name = "appointment.prescription.lines"
     _description = "Appointment Prescription Lines"
 
-    name = fields.Char(string="Medicine", required=True)
-    qty = fields.Integer(string="Quantity")
-    appointment_id = fields.Many2one('hospital.appointment', string="Appointment")
+    name = fields.Char(string="Ilac", required=True)
+    qty = fields.Integer(string="Sayi")
+    appointment_id = fields.Many2one('hospital.appointment', string="Randevu")
 

@@ -5,9 +5,9 @@ from odoo import api, fields, models, _
 
 class SearchAppointmentWizard(models.TransientModel):
     _name = "search.appointment.wizard"
-    _description = "Search Appointment Wizard"
+    _description = "Randevu Arama Sihirbazi"
 
-    patient_id = fields.Many2one('hospital.patient', string="Patient", required=True)
+    patient_id = fields.Many2one('hospital.patient', string="Hasta", required=True)
 
     def action_search_appointment_m1(self):
         action = self.env.ref('aksoy_hospital.action_hospital_appointment').read()[0]

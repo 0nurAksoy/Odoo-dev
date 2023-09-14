@@ -38,17 +38,17 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button id="button_confirm" name="action_confirm" string="Confirm" class="btn-primary" states="draft"
-                            confirm="Are you sure that you need to confirm ?"
+                    <button id="button_confirm" name="action_confirm" string="Dogrula" class="btn-primary" states="draft"
+                            confirm="Dogrulamak sitediginize emin misiniz ?"
                             type="object"/>
-                    <button id="button_done" name="action_done" string="Mark As Done" class="btn-primary" states="confirm"
+                    <button id="button_done" name="action_done" string="Tamamlandi" class="btn-primary" states="confirm"
                             type="object"/>
-                    <button id="button_draft" name="action_draft" string="Set To Draft" class="btn-primary"
+                    <button id="button_draft" name="action_draft" string="Taslaga ayarla" class="btn-primary"
                             states="cancel" type="object"/>
-                    <button id="button_cancel" name="action_cancel" string="Cancel" states="draft,done,confirm"
-                            confirm="Are you sure that you need to cancel ?"
+                    <button id="button_cancel" name="action_cancel" string="Iptal" states="draft,done,confirm"
+                            confirm="Iptal etmek istediginize emin misiniz ?"
                             type="object"/>
-                    <button name="action_url" string="Open Google" class="btn-primary"
+                    <button name="action_url" string="Google'a git" class="btn-primary"
                             type="object"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,done,confirm"/>
                 </header>
@@ -117,13 +117,13 @@
         <field name="name">hospital.appointment.search</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <search string="Patients">
+            <search string="Hasta">
                 <field name="name"/>
                 <field name="patient_id"/>
                 <separator/>
-                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Taslak" name="draft" domain="[('state', '=', 'draft')]"/>
                 <group expand="1" string="Group By">
-                    <filter string="Patient" name="patient_id" context="{'group_by':'patient_id'}"/>
+                    <filter string="Hasta" name="patient_id" context="{'group_by':'patient_id'}"/>
                 </group>
             </search>
         </field>
@@ -133,8 +133,10 @@
         <field name="name">hospital.appointment.calendar</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <calendar string="Appointments" date_start="date_appointment" mode="month" color="state">
-                <field name="patient_id"/>
+            <calendar string="Randevular" date_start="date_appointment"
+                      mode="month" color="state" event_limit="5">
+                <field name="patient_id" filters="1" avatar_field="image"/>
+                <field name="state" filters="1"/>
             </calendar>
         </field>
     </record>
