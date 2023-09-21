@@ -13,7 +13,7 @@ class HospitalPatient(models.Model):
     @api.model
     def default_get(self, fields):
         res = super(HospitalPatient, self).default_get(fields)
-        res['note'] = 'Yeni hasta kaydi'
+        res['note'] = 'Yeni hasta'
         return res
 
     name = fields.Char(string='Isim', required=True, tracking=True)
@@ -100,19 +100,19 @@ def check_age(self):
             raise ValidationError(_("Yas degeri 0(sifir) olamaz .. !"))
 
 
-# def name_get(self):
-#     result = []
-#     for rec in self:
-#         name = '[' + rec.reference + '] ' + rec.name
-#         result.append((rec.id, name))
-#     return result
+def name_get(self):
+    result = []
+    for rec in self:
+        name = '[' + rec.reference + '] ' + rec.name
+        result.append((rec.id, name))
+    return result
 
 @api.model
 
 
-def create(self, vals):
-    vals['reference'] = self.env['ir.sequence'].next_by_code('hospital.patient')
-    return super(HospitalPatient, self).create(vals)
+# def create(self, vals):
+#     vals['reference'] = self.env['ir.sequence'].next_by_code('hospital.patient')
+#     return super(HospitalPatient, self).create(vals)
 
 
 def action_open_appointments(self):
