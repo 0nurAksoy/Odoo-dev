@@ -77,7 +77,7 @@
                                 class="oe_stat_button" icon="fa-calendar">
                             <div class="o_stat_info">
                                 <field name="appointment_count" class="o_stat_value"/>
-                                <span class="o_stat_text">Appointments</span>
+                                <span class="o_stat_text">Randevular</span>
                             </div>
                         </button>
                     </div>

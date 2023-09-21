@@ -13,6 +13,7 @@
         'mail',
         'website_slides',
         'hr',
+        'product',
         'stock',
     ],
     'data': [
