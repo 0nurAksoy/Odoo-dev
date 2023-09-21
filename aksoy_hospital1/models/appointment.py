@@ -31,7 +31,7 @@ class HospitalAppointment(models.Model):
     note = fields.Text(string='Not')
     date_appointment = fields.Date(string="Tarih")
     date_checkup = fields.Datetime(string="Kontrol Tarihi")
-    prescription = fields.Text(string="Recete")
+    prescription = fields.Text(string="Doktor Gorusleri")
     prescription_line_ids = fields.One2many('appointment.prescription.lines', 'appointment_id',
                                             string="Ilac Listesi")
 

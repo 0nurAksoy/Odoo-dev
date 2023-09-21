@@ -31,7 +31,7 @@
                                                 <tr>
                                                     <td>
                                                         <span>
-                                                            <strong>Age:</strong>
+                                                            <strong>Yas:</strong>
                                                         </span>
                                                     </td>
                                                     <td>
@@ -44,7 +44,7 @@
                                                 <tr>
                                                     <td>
                                                         <span>
-                                                            <strong>Reference:</strong>
+                                                            <strong>Referans:</strong>
                                                         </span>
                                                     </td>
                                                     <td>
@@ -63,18 +63,18 @@
                         <br/>
 
                         <t t-if="o.appointment_ids">
-                            <span>Appointment Details</span>
+                            <span>Randevu Detaylari</span>
                             <table class="table table-sm o_main_table" name="appointment">
                                 <thead>
                                     <tr>
                                         <th name="th_reference" class="text-left">
-                                            <span>Reference</span>
+                                            <span>Referans</span>
                                         </th>
                                         <th name="th_age" class="text-left">
-                                            <span>Age</span>
+                                            <span>Yas</span>
                                         </th>
                                         <th name="th_doctor" class="text-left">
-                                            <span>Doctor</span>
+                                            <span>Doktor</span>
                                         </th>
                                     </tr>
                                 </thead>
@@ -96,7 +96,7 @@
 
                                 <tr>
                                     <td colspan="2">
-                                        <strong>Total Appointments</strong>
+                                        <strong>Toplam Randevu</strong>
                                     </td>
                                     <td>
                                         <t t-esc="appointment_count"/>

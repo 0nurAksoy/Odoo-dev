@@ -125,7 +125,7 @@
     </record>
 
     <record id="action_hospital_doctor" model="ir.actions.act_window">
-        <field name="name">Doctors</field>
+        <field name="name">Doktorlar</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hospital.doctor</field>
         <field name="view_mode">kanban,tree,form</field>
@@ -138,12 +138,12 @@
     </record>
 
     <menuitem id="menu_doctor_root"
-              name="Doctors"
+              name="Doktorlar"
               parent="menu_hospital_root"
               sequence="10"/>
 
     <menuitem id="menu_doctor"
-              name="Doctors"
+              name="Doktorlar"
               parent="menu_doctor_root"
               action="action_hospital_doctor"
               sequence="10"/>

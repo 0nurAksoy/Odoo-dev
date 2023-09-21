@@ -76,12 +76,12 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Doctor Prescription" name="doctor_prescription">
+                        <page string="Doktor Gorusleri" name="doctor_prescription">
                             <group>
                                 <field name="prescription"/>
                             </group>
                         </page>
-                        <page string="Medicine" name="medicine">
+                        <page string="Ilaclar" name="medicine">
                             <field name="prescription_line_ids">
                                 <tree editable="bottom">
                                     <field name="name"/>
@@ -99,7 +99,7 @@
                                 </form>
                             </field>
                         </page>
-                        <page string="Other Info" name="other_info">
+                        <page string="Diger Bilgiler" name="other_info">
                             <field name="note"/>
                         </page>
                     </notebook>
@@ -142,37 +142,37 @@
     </record>
 
     <record id="action_hospital_appointment" model="ir.actions.act_window">
-        <field name="name">Appointments</field>
+        <field name="name">Randevular</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hospital.appointment</field>
         <field name="view_mode">tree,form,calendar</field>
         <field name="context">{'search_default_draft': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create your first appointment !
+               Ilk randevunuzu olusturun !
             </p>
         </field>
     </record>
 
     <menuitem id="menu_appointment_root"
-              name="Appointments"
+              name="Randevular"
               parent="menu_hospital_root"
               sequence="20"/>
 
     <menuitem id="menu_appointment"
-              name="Appointments"
+              name="Randevular"
               parent="menu_appointment_root"
               action="action_hospital_appointment"
               sequence="10"/>
 
     <menuitem id="menu_create_appointment"
-              name="Create Appointment"
+              name="Randevu Olustur"
               parent="menu_appointment_root"
               action="action_create_appointment"
               sequence="20"/>
 
     <menuitem id="menu_search_appointment"
-              name="Search Appointment"
+              name="Randevu Ara"
               parent="menu_appointment_root"
               action="action_search_appointment"
               sequence="30"/>

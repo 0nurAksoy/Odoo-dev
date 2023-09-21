@@ -2,7 +2,7 @@
 <odoo>
     
     <record id="report_patient_details" model="ir.actions.report">
-        <field name="name">Patient Details</field>
+        <field name="name">Hasta Detaylari</field>
         <field name="model">hospital.patient</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">aksoy_hospital1.report_patient_detail</field>
@@ -12,7 +12,7 @@
     </record>
 
     <record id="report_patient_card" model="ir.actions.report">
-        <field name="name">Patient Card</field>
+        <field name="name">Hasta Karti</field>
         <field name="model">hospital.patient</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">aksoy_hospital1.report_patient_id_card</field>
