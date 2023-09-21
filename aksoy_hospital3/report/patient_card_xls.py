@@ -6,7 +6,7 @@ from odoo import models
 
 
 class PatientCardXlsx(models.AbstractModel):
-    _name = 'report.aksoy_hospital2.report_patient_id_card_xls'
+    _name = 'report.aksoy_hospital3.report_patient_id_card_xls'
     _inherit = 'report.report_xlsx.abstract'
 
     def generate_xlsx_report(self, workbook, data, patients):

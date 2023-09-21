@@ -5,8 +5,8 @@
         <field name="name">Hasta Detaylari</field>
         <field name="model">hospital.patient</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">aksoy_hospital2.report_patient_detail</field>
-        <field name="report_file">aksoy_hospital2.report_patient_detail</field>
+        <field name="report_name">aksoy_hospital3.report_patient_detail</field>
+        <field name="report_file">aksoy_hospital3.report_patient_detail</field>
         <field name="binding_model_id" ref="model_hospital_patient"/>
         <field name="binding_type">report</field>
     </record>
@@ -15,8 +15,8 @@
         <field name="name">Hasta Karti</field>
         <field name="model">hospital.patient</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">aksoy_hospital2.report_patient_id_card</field>
-        <field name="report_file">aksoy_hospital2.report_patient_id_card</field>
+        <field name="report_name">aksoy_hospital3.report_patient_id_card</field>
+        <field name="report_file">aksoy_hospital3.report_patient_id_card</field>
         <field name="binding_model_id" ref="model_hospital_patient"/>
         <field name="binding_type">report</field>
     </record>

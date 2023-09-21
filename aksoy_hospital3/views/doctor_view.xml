@@ -73,7 +73,7 @@
             <form>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="%(aksoy_hospital2.action_open_appointments)d" type="action"
+                        <button name="%(aksoy_hospital3.action_open_appointments)d" type="action"
                                 class="oe_stat_button" icon="fa-calendar">
                             <div class="o_stat_info">
                                 <field name="appointment_count" class="o_stat_value"/>
