@@ -17,7 +17,8 @@ class HospitalPatient(models.Model):
         return res
 
     name = fields.Char(string='Isim', required=True, tracking=True)
-    reference = fields.Char(string='Sira Sayisi', required=True,)
+    reference = fields.Char(string='Sira Sayisi', required=True,
+                            default=lambda self: _('H'))
     date_of_birth = fields.Date(string='Dogum Tarihi')
     age = fields.Integer(string='Yas', tracking=True, compute='_compute_age')
     gender = fields.Selection([
@@ -54,20 +55,6 @@ def _compute_appointment_count(self):
     for rec in self:
         appointment_count = self.env['hospital.appointment'].search_count([('patient_id', '=', rec.id)])
         rec.appointment_count = appointment_count
-
-
-@api.model
-
-
-def create(self, vals):
-    vals['reference'] = self.env['ir.sequence'].next_by_code('hospital.patient')
-    return super(HospitalPatient, self).create(vals)
-
-
-def write(self, vals):
-    if not self.reference and not vals.get('reference'):
-        vals['reference'] = self.env['ir.sequence'].next_by_code('hospital.patient')
-    return super(HospitalPatient, self).write(vals)
 
 
 def action_confirm(self):
