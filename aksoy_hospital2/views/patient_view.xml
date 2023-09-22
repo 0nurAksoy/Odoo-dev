@@ -2,7 +2,7 @@
 <odoo>
 
     <record id="action_create_appointments" model="ir.actions.server">
-        <field name="name">Create Appointment</field>
+        <field name="name">Randevu Olustur</field>
         <field name="model_id" ref="aksoy_hospital2.model_hospital_patient"/>
         <field name="binding_model_id" ref="aksoy_hospital2.model_hospital_patient"/>
         <field name="binding_view_types">list,form</field>
@@ -78,7 +78,7 @@
                         <button name="action_open_appointments" type="object" class="oe_stat_button" icon="fa-calendar">
                             <div class="o_stat_info">
                                 <field name="appointment_count" class="o_stat_value"/>
-                                <span class="o_stat_text">Appointments</span>
+                                <span class="o_stat_text">Randevular</span>
                             </div>
                         </button>
                     </div>

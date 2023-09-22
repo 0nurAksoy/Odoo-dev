@@ -23,7 +23,7 @@
     </record>
 
     <record id="action_search_appointment" model="ir.actions.act_window">
-        <field name="name">View Appointment</field>
+        <field name="name">Randevu Ara</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">search.appointment.wizard</field>
         <field name="view_mode">form</field>

@@ -22,7 +22,7 @@ class HospitalAppointment(models.Model):
     ], string="Cinsiyet")
     state = fields.Selection([('draft', 'Taslak'), ('confirm', 'Dogrulandi'),
                               ('done', 'Tamanlandi'), ('cancel', 'Iptal')], default='draft',
-                             string="Status", tracking=True)
+                             string="Durum", tracking=True)
     priority = fields.Selection([
         ('0', 'Dusuk'),
         ('1', 'Normal'),
@@ -47,12 +47,18 @@ class HospitalAppointment(models.Model):
     def action_cancel(self):
         self.state = 'cancel'
 
+    # @api.model
+    # def create(self, vals):
+    #     if vals.get('name', _('New')) == _('New'):
+    #         vals['name'] = self.env['ir.sequence'].next_by_code('hospital.appointment') or _('New')
+    #     res = super(HospitalAppointment, self).create(vals)
+    #     return res
+
     @api.model
     def create(self, vals):
-        if vals.get('name', _('New')) == _('New'):
-            vals['name'] = self.env['ir.sequence'].next_by_code('hospital.appointment') or _('New')
-        res = super(HospitalAppointment, self).create(vals)
-        return res
+        vals['name'] = self.env['ir.sequence'].next_by_code('hospital.appointment')
+        return super(HospitalPatient, self).create(vals)
+
 
     @api.onchange('patient_id')
     def onchange_patient_id(self):
@@ -74,7 +80,7 @@ class HospitalAppointment(models.Model):
         return {
             'type': 'ir.actions.act_url',
             'target': 'new',
-            'url': 'https://www.google.com'
+            'url': 'https://enabiz.gov.tr'
         }
 
 

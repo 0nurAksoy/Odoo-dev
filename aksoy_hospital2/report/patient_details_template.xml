@@ -76,6 +76,12 @@
                                         <th name="th_doctor" class="text-left">
                                             <span>Doktor</span>
                                         </th>
+                                        <th name="th_doctor" class="text-left">
+                                            <span>Tarih</span>
+                                        </th>
+                                        <th name="th_doctor" class="text-left">
+                                            <span>Durum</span>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <t t-set="appointment_count" t-value="0"/>
@@ -91,6 +97,13 @@
                                         <td>
                                             <span t-field="line.doctor_id.doctor_name"/>
                                         </td>
+                                        <td>
+                                            <span t-field="line.date_appointment"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.state"/>
+                                        </td>
+
                                     </tr>
                                 </t>
 

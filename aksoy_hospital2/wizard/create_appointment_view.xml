@@ -12,7 +12,7 @@
                     <field name="patient_id"/>
                 </group>
                 <footer>
-                    <button name="action_create_appointment" type="object" string="Create" class="btn-primary"/>
+                    <button name="action_create_appointment" type="object" string="Olustur" class="btn-primary"/>
                     <button string="Iptal" class="btn-secondary" special="cancel"/>
                 </footer>
             </form>
@@ -20,7 +20,7 @@
     </record>
 
     <record id="action_create_appointment" model="ir.actions.act_window">
-        <field name="name">Create Appointment</field>
+        <field name="name">Randevu Olustur</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">create.appointment.wizard</field>
         <field name="view_mode">form</field>
